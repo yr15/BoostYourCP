@@ -1,0 +1,34 @@
+{% extends "profiles/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+        <h1>Recent Contests</h1>
+<br><hr>
+
+    {% for c in codechef %}
+
+       
+        
+            <h2><a class="article-content" href="https://www.codechef.com/{{c.title}}">{{ c.name }}</a></h2>
+            
+            <p class="article-content">{{ c.start }}</p>
+         
+        
+
+    {% endfor %}
+
+    {% for c in codeforces %}
+
+      
+          
+              
+          
+            <h2><a class="article-content" href="https://codeforces.com/contests">{{ c.name }}</a></h2>
+            
+            <p class="article-content">{{ c.start }}</p>
+          
+       
+        
+    {% endfor %}
+
+{% endblock content %}
+

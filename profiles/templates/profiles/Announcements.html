@@ -1,0 +1,20 @@
+{% extends "profiles/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+        <h1>Resources by fellow coders</h1>
+<br><hr>
+
+        {% for post in Announcements %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+             <h2><a class="article-title" href="#">Post {{ post.id }}</a></h2>
+              
+            </div>
+            <h2><a class="article-title" href="#">Title:{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.post_data }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
+

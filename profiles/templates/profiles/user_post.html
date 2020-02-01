@@ -1,0 +1,30 @@
+{% extends "profiles/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+        <h1>Resources by fellow coders</h1>
+        <form method = "POST">
+            {% csrf_token %}
+            <fieldset>
+                <legend> Title</legend>
+                {{ form |crispy }}
+            </fieldset>
+          <center>  <button type="submit">Create Post</button></center>
+        </form>
+        <br>
+        <hr>
+        <br>
+
+        {% for post in posts %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+             <h2><a class="article-title" href="#">Post {{ post.id }}</a></h2>
+              
+            </div>
+            <h2><a class="article-title" href="#">Title:{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.post_data }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
+
